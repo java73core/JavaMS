@@ -11,10 +11,6 @@ public class FilterList {
         this.listPerson = listPerson;
     }
 
-    public void printSearch(){
-        System.out.println(filterList(0,"","",'M',1999));
-    }
-
     public List<Person> filterList(int id, String name, String surname, char sex, int yearBirth) {
        Iterator<Person> iterName = listPerson.iterator();
          while(iterName.hasNext()){

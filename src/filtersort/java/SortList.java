@@ -12,11 +12,6 @@ public class SortList {
         this.listPerson = listPerson;
     }
 
-/*    public void printList() {
-        sortBySexF();
-        System.out.println(resultList.toString());
-    }*/
-
     public List<Person> sortByYearAscend() {
         Collections.sort(listPerson, new Comparator<Person>() {
             @Override
