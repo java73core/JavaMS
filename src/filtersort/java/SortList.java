@@ -4,7 +4,6 @@ import java.util.stream.Collectors;
 
 public class SortList {
     private List<Person> listPerson = new ArrayList<>();
-    private final Person person = new Person();
 
     public SortList(List<Person> listPerson) {
         this.listPerson = listPerson;
