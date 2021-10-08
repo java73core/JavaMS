@@ -1,22 +1,21 @@
-public class Person {
-    private char sex;
+import java.util.Objects;
 
-    private enum Sex{ M, F }
+public class Person {
+    private Sex sex;
 
     private String name;
 
     private String surname;
 
-    private int birthYear;
+    private Integer birthYear;
 
-    private int id;
-
-    public char getSex(){
-        return Sex.valueOf(String.valueOf(this.sex)).equals('M') || Sex.valueOf(String.valueOf(this.sex)).equals('F')?
-         sex: '\u0000';
-    }
+    private Integer id;
 
     public Person() {
+    }
+
+    public Sex getSex(){
+        return sex;
     }
 
     public String getName() {
@@ -35,12 +34,25 @@ public class Person {
         return id;
     }
 
-    public Person(int id, String name, String surname, char sex, int birthYear) {
+    public Person(Integer id, String name, String surname, Sex sex, Integer birthYear) {
         this.birthYear = birthYear;
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.sex = sex;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return sex == person.sex && Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(birthYear, person.birthYear) && Objects.equals(id, person.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sex, name, surname, birthYear, id);
     }
 
     @Override
@@ -52,10 +64,6 @@ public class Person {
                 ", surname='" + surname + '\'' +
                 ", birthYear=" + birthYear +
                 '}' + System.lineSeparator();
-    }
-
-    public Person toList() {
-        return new Person(id, name, surname, sex, birthYear);
     }
 }
 

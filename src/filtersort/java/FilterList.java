@@ -1,23 +1,19 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class FilterList {
-    private List<Person> resultList = new ArrayList<>();
     private List<Person> listPerson = new ArrayList<>();
-    private Person person = new Person();
 
     FilterList(List<Person> listPerson) {
         this.listPerson = listPerson;
     }
 
-    public List<Person> filterList(int id, String name, String surname, char sex, int yearBirth) {
-       Iterator<Person> iterName = listPerson.iterator();
-         while(iterName.hasNext()){
-            person = iterName.next();
-              if(person.getId() == id  || person.getName().equals(name) && person.getSurname().equals(surname) || person.getSex() == sex || person.getBirthYear() == yearBirth) {
-              resultList.add(person.toList());
-            }
-        } return resultList;
+    public List<Person> filterList(Integer id, String name, String surname, Sex sex, Integer yearBirth)
+    {
+        return listPerson.stream().filter(Objects::nonNull)
+               .filter(list -> list.getId() == id  || list.getName().equals(name) || list.getSurname().equals(surname) || list.getSex() == sex || list.getBirthYear() == yearBirth)
+               .collect(Collectors.toList());
     }
 }
