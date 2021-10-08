@@ -1,4 +1,5 @@
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Person {
     private Sex sex;
@@ -26,11 +27,11 @@ public class Person {
         return surname;
     }
 
-    public int getBirthYear() {
+    public Integer getBirthYear() {
         return birthYear;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -40,19 +41,6 @@ public class Person {
         this.name = name;
         this.surname = surname;
         this.sex = sex;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return sex == person.sex && Objects.equals(name, person.name) && Objects.equals(surname, person.surname) && Objects.equals(birthYear, person.birthYear) && Objects.equals(id, person.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(sex, name, surname, birthYear, id);
     }
 
     @Override
