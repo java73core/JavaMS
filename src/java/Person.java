@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Person {
     private Sex sex;
@@ -10,8 +11,20 @@ public class Person {
 
     private Integer id;
 
-    public Person() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return sex == person.sex ||
+                Objects.equals(name, person.name) ||
+                Objects.equals(surname, person.surname) ||
+                Objects.equals(birthYear, person.birthYear) ||
+                Objects.equals(id, person.id);
     }
+
+
+
 
     public Sex getSex(){
         return sex;

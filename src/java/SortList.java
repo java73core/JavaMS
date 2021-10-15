@@ -9,7 +9,7 @@ public class SortList {
         this.listPerson = listPerson;
     }
 
-    public List<Person> sortByYearAscend() {
+    public List<Person> sortByYearAscend(/*List<Person> listPerson, */) {
         return listPerson.stream().sorted((o1, o2) -> o1.getBirthYear() - o2.getBirthYear()).collect(Collectors.toList());
     }
 
