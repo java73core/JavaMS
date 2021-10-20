@@ -23,9 +23,6 @@ public class Person {
                 Objects.equals(id, person.id);
     }
 
-
-
-
     public Sex getSex(){
         return sex;
     }

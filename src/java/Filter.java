@@ -3,7 +3,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class Filter {
+
     private List<Person> listPerson = new InitList().getListPerson();
+
     private List<Person> listParametr = new ArrayList<>();
 
     private Integer randomBirthYearGenerator() throws Exception {
@@ -42,6 +44,4 @@ public class Filter {
         listParametr.add(new Person(null, randomNameGenerator(), null, Sex.M, null));
         return listParametr;
     }
-
-
 }
