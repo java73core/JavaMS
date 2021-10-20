@@ -7,13 +7,11 @@ class SortListTest {
     private List<Person> listPerson;
     private Map map;
     private Sorter sorter;
-    private String value;
     private SortList sortList;
-   // protected static Random generator = new Random();
-
 
     @BeforeEach
     public void initList(){
+       sortList = new SortList();
        map = new Sorter().getComparatorMap();
        listPerson = new InitList().getListPerson();
        sorter = new Sorter();

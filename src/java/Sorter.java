@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class Sorter {
-       private Map<String, Comparator> comparatorMap = new HashMap<String, Comparator>();
+       private final Map<String, Comparator> comparatorMap = new HashMap<String, Comparator>();
 
-       private void  createMapOfComparator() {
+     {
            comparatorMap.put("sortByYearDescend", new Comparator<Person>() {
                @Override
                public int compare(Person o1, Person o2) {
